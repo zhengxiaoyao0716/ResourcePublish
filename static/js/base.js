@@ -359,7 +359,7 @@ var ajax = function(url, type, contentType, data, success, silence, extend) {
     $.ajax(config);
 };
 // 模拟Ajax调试
-if (window.location.host == "") {
+if (window.location.host == "" || location.host == "zhengxiaoyao0716.github.io") {
     urlMap["console"] = "./../html/console.html";
     var expectDictMap = {
         "univer": function(univer) {
