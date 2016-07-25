@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Keywords" content="社会实践,素材,共享,"/>
+    <meta name="Description" content="社会实践素材发布共享平台"/>
+    <title>社会实践素材共享平台</title>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./static/css/calendar.css" rel="stylesheet" />
+    <link href="./static/css/base.css" rel="stylesheet" />
+    <link href="./static/css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <a id="top"></a>
+    <!-- 工具栏 -->
+    <div class="toolbar">
+        <div class="toolbar_logo">
+            素材共享平台
+        </div>
+        <div id="navButton" class="toolbar_button_bar">
+            <a class="select">综合资讯</a>
+            <a>实践印象</a>
+            <a>图文画廊</a>
+            <a style="display: none;">光影剪辑</a>
+        </div>
+        <div class="toolbar_head">
+            <div id="needLogin" style="display: none;">游客您好<br />请：<a>登录</a></div>
+            <div id="dropButton" class="drop"><img id="userHead" /></div>
+            <ul id="dropList" class="droplist">
+                <ol id="loginButton"><i class="fa fa-sign-in"></i><a>登录</a></ol>
+                <ol id="userName"><i class="fa fa-sign-in"></i>用户姓名</ol>
+                <hr />
+                <ol id="accountButton"><i class="fa fa-user"></i><a>用户中心</a></ol>
+                <hr />
+                <ol id="uploadButton"><i class="fa fa-cloud-upload"></i><a>上传素材</a></ol>
+                <ol id="manageButton"><i class="fa fa-dashboard"></i><a>管理素材</a></ol>
+                <hr />
+                <ol id="logoutButton"><i class="fa fa-sign-out"></i><a>退出登录</a></ol>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 切换栏 -->
+    <div id="tabButton" class="tabbar">
+        <a class="select">最新</a>
+        <a>最热</a>
+    </div>
+
+    <!-- 浮动栏 -->
+    <div class="floatbar floatbar-minus">
+        <div class="header">筛选条件：</div>
+        <div id="filterBar" style="display: inline-block;"></div>
+        <a id="addFilter" class="add"></a>
+        <div id="filterPicker" class="floatbar" style="display: none;">
+            <div id="univerBar" class="floatbar-plus">
+                <div class="header">学校：</div>
+            </div>
+            <div class="floatbar-plus">
+                <div class="header">时间：</div>
+                <a id="datePicker" class="add"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 画廊 -->
+    <div id="gallery" class="gallery"></div>
+
+    <!-- 分页栏 -->
+    <div class="floatbar floatbar-page">
+        <div id="loadingPage" class="loadingTip" style="display: none;">
+            正在加载 <i class="fa fa-spinner fa-pulse"></i>
+        </div>
+        <a id="firstPage" class="left"><i class="fa fa-angle-double-left"></i></a>
+        <a id="leftPage"><i class="fa fa-angle-left"></i></a>
+        <div id="pageButton"></div>
+        <a id="rightPage"><i class="fa fa-angle-right"></i></a>
+        <a id="lastPage" class="right"><i class="fa fa-angle-double-right"></i></a>
+    </div>
+
+    <!-- 页脚栏 -->
+    <div class="footbar">
+        <small>Copyright© 北京满井智信科技发展有限责任公司 All Rights Reserved</small>
+        <small><a href='http://www.miibeian.gov.cn' target='_blank'>京ICP备15056757号-1</a></small>
+    </div>
+
+    <!-- 脚本 -->
+    <div style="display: none">
+        <script>
+        {% if user_info %}
+            userInfo = {
+                "head": "{{ user_info['head'] }}",
+                "name": "{{ user_info['name'] }}"
+            };
+        {% endif %}
+        </script>
+        <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+        <script src="./static/js/calendar.min.js"></script>
+        <script src="./static/js/base.js"></script>
+        <script src="./static/js/main.js"></script>
+    </div>
+
+</body>

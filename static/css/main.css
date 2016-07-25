@@ -1,0 +1,549 @@
+body {
+    background: #eee;
+}
+a {
+    text-decoration: none;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 导航栏 */
+.toolbar {
+    position: relative;
+    background: #03A9F4;
+    color: #eee;
+    font-family: arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;
+}
+.toolbar a {
+    cursor: pointer;
+    -webkit-transition: transform 0.1s;
+    transition: transform 0.1s;
+}
+.toolbar .select {
+    cursor: default;
+}
+.toolbar a:hover {
+    color: white;
+    -webkit-transform: scale(1.2) translateY(-3%);
+    transform: scale(1.2) translateY(-3%);
+}
+.toolbar .select:hover {
+    transform: scale(1) translateY(0);
+}
+.toolbar div {
+    display: inline-block;
+}
+.toolbar div a {
+    display: inline-block;
+}
+.toolbar_logo {
+    font-size: 2.5em;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    display: inline-block;
+}
+.toolbar_button_bar {
+    position: absolute;
+    font-size: 1.2em;
+    display: inline-block;
+    bottom: 0px;
+}
+.toolbar_button_bar a {
+    padding: 20px;
+    height: 100%;
+    position: relative;
+}
+.toolbar_button_bar .select {
+    color: white;
+}
+.toolbar_button_bar .select::before {
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid white;
+    content: "";
+}
+.toolbar_head {
+    position: absolute;
+    height: 60px;
+    right: 0px;
+    top: 50%;
+    margin-top: -24px;
+}
+.toolbar_head img {
+    width: 45px;
+    height: 45px;
+}
+.toolbar_head .drop {
+    position: relative;
+    margin-right: 30px;
+    cursor: pointer;
+    color: white;
+}
+.toolbar_head .drop::after {
+    position: absolute;
+    top: 10px;
+    right: -24px;
+    font: normal normal normal 1.2em FontAwesome;
+    content: "\f078";
+    -webkit-transition-: transform 0.1s;
+    transition: transform 0.1s;
+}
+.toolbar_head:hover .drop::after {
+    display: inline-block;
+    -webkit-transition-: transform 0.1s;
+    transition: transform 0.1s;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+.toolbar_head .droplist {
+    -webkit-transition-: transform 0.1s;
+    transition: transform 0.1s;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+}
+.toolbar_head:hover .droplist {
+    -webkit-transition-: transform 0.1s;
+    transition: transform 0.1s;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+/* 账户下拉菜单 */
+.droplist {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    top: 100%;
+    width: 160px;
+    background: #03A9F4;
+    box-shadow: 0px 3px 3px 0px grey;
+    color: #eee;
+    text-align: center;
+}
+.droplist ol {
+    padding: 6px 20px;
+}
+.droplist ol i {
+    color: white;
+    width: 20%;
+    margin-left: -6%;
+}
+.droplist ol a {
+    position: relative;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+.droplist ol a:hover {
+    color: #FFEB3B;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.droplist ol a::before, .droplist ol a::after {
+    position: absolute;
+    display: inline-block;
+    color: #FFEB3B;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+.droplist ol a::before {
+    content: "[";
+    -webkit-transform: translateX(-300%);
+    transform: translateX(-300%);
+}
+.droplist ol a::after {
+    content: "]";
+    -webkit-transform: translateX(300%);
+    transform: translateX(300%);
+}
+.droplist ol a:hover::before {
+    opacity: 1;
+    -webkit-transform: translateX(-150%);
+    transform: translateX(-150%);
+}
+.droplist ol a:hover::after {
+    opacity: 1;
+    -webkit-transform: translateX(150%);
+    transform: translateX(150%);
+}
+.droplist hr {
+    margin: 0px 20px;
+}
+
+/* 标签栏 */
+.tabbar {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 3px 3px 0px grey;
+    text-align: center;
+    font-family: arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;
+}
+.tabbar::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    content: "";
+    background: white;
+    z-index: -2;
+}
+.tabbar a {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    font-size: 1.2em;
+    padding: 36px 0px;
+    color: black;
+    cursor: pointer;
+}
+.tabbar .select {
+    cursor: default;
+}
+.tabbar a::before {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    content: ""
+}
+.tabbar a:hover {
+    color: white;
+}
+.tabbar a:hover::before {
+    position: absolute;
+    display: inline-block;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background: #FFEB3B;
+    border-radius: 10px;
+    content: "";
+    opacity: 1;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 0.1s, opacity 0.1s;
+    transition: transform 0.1s, opacity 0.1s;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+}
+.tabbar .select:hover {
+    color: black;
+}
+.tabbar .select::before, .tabbar .select:hover::before {
+    position: absolute;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+    background: #FFEB3B;
+    color: black;
+    content: "";
+}
+
+/* 浮动栏 */
+.floatbar {
+    width: 94%;
+    padding: 15px 3%;
+    line-height: 3;
+}
+.floatbar a {
+    position: relative;
+    margin: 15px;
+    font-family: arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;
+    color: #03A9F4;
+    white-space:nowrap;
+    top: -6px;
+    cursor: pointer;
+}
+.floatbar .header {
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+    font-size: 1.2em;
+    color: #666;
+}
+.floatbar-minus {
+    font-size: 0.9em;
+}
+.floatbar-plus {
+    font-size: 0.9em;
+}
+.floatbar a:hover {
+    color: white;
+}
+.floatbar .select {
+    cursor: default;
+}
+.floatbar .select:hover {
+    color: #03A9F4;
+}
+.floatbar a:hover::before {
+    background-color: #FFEB3B;
+}
+.floatbar .select:hover::before {
+    background-color: white;
+}
+.floatbar a:active::before, .floatbar .select::before {
+    top: -5px;
+    box-shadow: 0px 1px 1px 0px grey;
+}
+.floatbar a::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    padding: 6px 12px;
+    left: -12px;
+    top: -6px;
+    background: white;
+    box-shadow: 0px 3px 3px 1px grey;
+    content: "";
+    border-radius: 12px;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+.floatbar .add {
+    background: white;
+    padding: 0px 3px;
+}
+.floatbar .add::after {
+    color: #03A9F4;
+    content: "\f067";
+}
+.floatbar .add:hover, .floatbar .add:hover::before {
+    background-color: #FFEB3B;
+}
+.floatbar .add:hover {
+    text-decoration: none;
+}
+.floatbar .add:hover::after {
+    color: white;
+}
+.floatbar .add:active::after, .floatbar .adding::after {
+    display: inline-block;
+    content: "\f00c";
+}
+.floatbar .adding:active::after {
+    display: inline-block;
+}
+.floatbar-minus a:hover {
+    text-decoration: line-through;
+}
+.floatbar-plus a:hover {
+    text-decoration: none;
+}
+.floatbar-minus a::after {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: " \f056";
+    color: #FFEB3B;
+}
+.floatbar-plus a::after {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: " \f055";
+    color: #FFEB3B;
+}
+.floatbar-minus a:hover, .floatbar-minus a:hover::after, .floatbar-minus .select {
+    color: black;
+}
+.floatbar-plus a:hover, .floatbar-plus a:hover::after, .floatbar-plus .select {
+    color: white;
+}
+.floatbar-minus a:hover::before, .floatbar-minus .select::before {
+    background-color: white;
+}
+.floatbar-plus a:hover::before, .floatbar-plus .select::before {
+    background-color: #FFEB3B;
+}
+.floatbar-page {
+    text-align: center;
+}
+.floatbar-page div {
+    display: inline-block;
+}
+.floatbar-page .left::before {
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+.floatbar-page .right::before {
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+.floatbar-page a:visited {
+    color: #f5f;
+}
+.floatbar-page a::before {
+    box-shadow: 0px 6px 3px 1px grey;
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+}
+.floatbar-page .loadingTip {
+    display: block;
+    color: #666;
+}
+
+/* 画廊 */
+.gallery {
+    width: 100%;
+}
+.gallery .page-sign {
+    text-align: center;
+    color: #666;
+}
+.gallery .page-sign a {
+    display: none;
+    color: #666;
+}
+.gallery .page-sign:hover a {
+    display: inline;
+}
+.gallery .page-sign a:hover {
+    color: black;
+}
+.gallery .row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin: 2% 0;
+}
+.gallery .row .column {
+    display: inline-block;
+    width: 20%;
+    margin: 0 2%;
+    background: white;
+    box-shadow: 0px 3px 3px 0px grey;
+    -webkit-transition: transform 0.2s;
+    -moz-transition: transform 0.2s;
+    transition: transform 0.2s;
+    border-radius: 12px;
+}
+.gallery .row .column:hover {
+    -webkit-transition: transform(0.2s);
+    transition: transform(0.2s);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    border-radius: 0px;
+}
+.gallery .row .column * {
+    width: 100%;
+}
+.gallery .row .column .head {
+    padding: 6px;
+    color: #666;
+    font-size: 0.8em;
+}
+.gallery .row .column .head span {
+    float: right;
+    width:auto;
+    padding-right: 20px;
+}
+.gallery .row .column .dotBar {
+    display: flex;
+    justify-content: center;
+}
+.gallery .row .column .dotBar i {
+    width: auto;
+    margin: 0px 10px;
+}
+.gallery .row .column small {
+    display: none;
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+}
+.gallery .row .column:hover small {
+    display: block;
+} 
+.gallery .row .column small, .gallery .row .column h3, .gallery .row .column p,
+.gallery .row .column ul, .gallery .row .column .button_bar {
+    padding: 2%;
+    width: 96%;
+}
+.gallery .row .column small, .gallery .row .column h3 {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.gallery .row .column h3 {
+    font-family: arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;
+}
+.gallery .row .column small::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f0d8";
+    margin-right: 10px;
+}
+.gallery .row .column:hover p {
+    display: none;
+}
+.gallery .row .column ul {
+    display: none;
+    margin-left: 20px;
+    font-size: 0.8em;
+    color: #666;
+}
+.gallery .row .column:hover ul {
+    display: block;
+}
+.gallery .row .column .button_bar {
+    display: none;
+    /*text-align: right;*/
+    text-align: center;
+}
+.gallery .row .column:hover .button_bar {
+    display: block;
+}
+.gallery .row .column .button_bar i {
+    display: inline-block;
+    /*width: 15%;*/
+    font-size: 1.2em;
+    text-align: center;
+    /*color: #03A9F4;*/
+    cursor: pointer;
+    transition:background-color 0.3s ease-in;
+}
+.gallery .row .column .button_bar i:hover {
+    transition:background-color 0.3s ease-in;
+    color: white;
+    background: #FFEB3B;
+}
+.gallery .row .column .detail {
+    display: none;
+}
+.gallery .row .column:hover .detail {
+    position: absolute;
+    display: block;
+    top: 0px;
+    height: 95%;
+    width: 150%;
+    background: white;
+    overflow-y: scroll;
+    padding: 3%;
+    box-shadow: 0px 3px 3px 0px grey;
+    z-index: 1;
+    font-size: 0.8em;
+    font-family: 'microsoft yahei', 'Helvetica', simhei, simsun, sans-serif;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* 日期选择器 */
+.eui-calendar-date {
+    color: #03A9F4;
+}

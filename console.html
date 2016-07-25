@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Keywords" content="社会实践,素材,共享,"/>
+    <meta name="Description" content="社会实践素材发布共享平台"/>
+    <title>社会实践素材共享平台</title>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./static/css/calendar.css" rel="stylesheet" />
+    <link href="./static/css/base.css" rel="stylesheet" />
+    <link href="./static/css/main-vertical.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="toolbar">
+        <ul>
+            <ol><i class="fa fa-user"></i><a href="#account">用户中心</a></ol>
+            <!--<hr />-->
+            <ol><i class="fa fa-cloud-upload"></i><a href="#upload">上传素材</a></ol>
+            <ol><i class="fa fa-dashboard"></i><a href="#manage">管理素材</a></ol>
+            <hr />
+            <ol><i class="fa fa-home"></i><a href="./index.html">返回主页</a></ol>
+        </ul>
+    </div>
+    <div class="body" style="">
+        <!-- 用户中心模块 -->
+        <div id="account" class="board">
+            <p class="board-sign">用户中心 <a href="#account" class="fa fa-map-signs"></a></p>
+            <div class="label">个人信息</div>
+            <div class="infolist">
+                <ul>
+                    <li>学校：<p>{{ univer }}</p></li>
+                    <li>院系：<p>{{ college }}</p></li>
+                    <li>姓名：<p>{{ name }}</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 上传素材模块 -->
+        <div id="upload" class="board">
+            <p class="board-sign">上传素材 <a href="#upload" class="fa fa-map-signs"></a></p>
+            <div class="label">上传图片</div>
+            <div class="upload">
+                <div class="show">
+                    <!--<div class="image">
+                        <img src="./static/image/user.svg"/>
+                        <input type="text" placeholder="请添加图片描述"/>
+                        <div class="progress failed"></div>
+                    </div>
+                    <div class="image">
+                        <img src="./static/image/user.svg"/>
+                        <input type="text" placeholder="请添加图片描述"/>
+                    </div>-->
+                </div>
+                <div class="select">
+                    <input id="selectButton" type="file" style="" />
+                </div>
+            </div>
+            <div class="label">添加文字</div>
+            <textarea rows="16" placeholder="这里写下正文"></textarea>
+            <input placeholder="摘要" maxlength="32"
+                oninput="if (value.length > maxLength) value = value.slice(0, maxLength);"
+            ></input>
+            <div class="buttonBar">
+                <a id="uploadButton" href="javascript:;">提交</a>
+            </div>
+        </div>
+
+        <!-- 管理素材模块 -->
+        <div id="manage" class="board">
+            <p class="board-sign">管理素材 <a href="#manage" class="fa fa-map-signs"></a></p>
+            <div class="infolist">
+            {% for archive in archives %}
+                <div id="{{ archive['id'] }}">
+                    <div class="label">{{ archive['date'] }}</div>
+                {% for image in archive['images'] %}
+                    <div class="image">
+                        <img src="{{ image['url'] }}"><img>
+                        <p>{{ image['title'] }}</p>
+                    </div>
+                {% endfor %}
+                    <ul id="{{ archive['id'] }}" class="paragraph">
+                        <li>正文：<p>{{ archive['essay'] }}</p></li>
+                        <li>摘要：<p>{{ archive['desc'] }}</p></li>
+                        <li>下载量：<p>{{ archive['hot'] }}</p></li>
+                    </ul>
+                    <div class="buttonBar">
+                        <a id="deleteButton" href="javascript:;">删除</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <!-- 页脚栏 -->
+        <div class="footbar">
+            <small>Copyright© 北京满井智信科技发展有限责任公司 All Rights Reserved</small>
+            <small>京ICP备15056757号-1</small>
+        </div>
+    </div>
+    <!-- 脚本 -->
+    <div style="display: none">
+        <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/plupload/2.1.9/plupload.full.min.js"></script>
+        <script src="./static/js/upload.js"></script>
+        <script src="./static/js/base.js"></script>
+        <script src="./static/js/main-vertical.js"></script>
+    </div>
+
+</body>

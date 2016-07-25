@@ -1,0 +1,246 @@
+body {
+    background: #eee;
+}
+a {
+    text-decoration: none;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/** 工具栏 */
+.toolbar {
+    position: fixed;
+    background: #03A9F4;
+    width: 15%;
+    height: 100%;
+    display: inline-block;
+    box-shadow: 3px 3px 3px 0px grey;
+}
+.toolbar ol {
+    position: relative;
+    line-height: 1.5em;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+.toolbar ol i {
+    width: 30%;
+    font-size: 1.5em;
+    text-align: center;
+}
+.toolbar ol a {
+    line-height: 1.5em;
+    font-size: 1.2em;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    color: white;
+}
+
+/** 主体部分 */
+.body {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width:85%;
+    height: 100%;
+    margin-left: 15%;
+    text-align: center;
+}
+
+/** 面板 */
+.board {
+    display: block;
+    background: white;
+    color: black;
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0px 3px 3px 0px grey;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+.board .board-sign {
+    text-align: left;
+    color: #666;
+    font-size: 1.2em;
+    padding-bottom: 1%;
+}
+.board .board-sign a {
+    display: none;
+    color: #666;
+}
+.board .board-sign:hover a {
+    display: inline;
+}
+.board .board-sign a:hover {
+    color: black;
+}
+.board .label {
+    position: relative;
+    font-size: 0.8em;
+    color: #666;
+    text-align: left;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+.board .label::before {
+    position: absolute;
+    top: -2%;
+    width: 100%;
+    height: 1px;
+    background: grey;
+    content: "";
+}
+.board textarea {
+    width: 98%;
+    padding: 1%;
+}
+.board input {
+    width: 98%;
+    padding: 1%;
+}
+.board .buttonBar {
+    text-align: left;
+}
+.board .buttonBar a {
+    color: black;
+    display: inline-block;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition:background-color 0.3s ease-in;
+    padding: 6px 12px;
+    margin: 6px 12px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+.board .buttonBar a:hover {
+    transition:background-color 0.3s ease-in;
+    color: white;
+    background: #FFEB3B;
+    border: 1px solid #FFEB3B;
+}
+
+/** 信息列表 */
+.infolist {
+    text-align: left;
+    color: #666;
+}
+.infolist li, .infolist p {
+    word-break: break-all;
+}
+.infolist li {
+    margin: 20px;
+}
+.infolist p {
+    display: inline-block;
+    color: black;
+    margin-bottom: 6px;
+}
+.infolist .image {
+    display: inline-block;
+}
+.infolist .image, .infolist .paragraph {
+    margin: 12px;
+    border: 1px solid #eee;
+}
+.infolist .image p {
+    display: block;
+    text-align: center;
+}
+.infolist .image p::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f0d8";
+    margin-right: 10px;
+}
+
+/** 上传区域 */
+.upload {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+.upload .show {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+.upload .show .image {
+    position: relative;
+    margin: 10px;
+}
+.upload .show .image, .upload .show .image * {
+    width: 100px;
+}
+.upload .show .image img {
+    width: auto;
+    max-width: 100px;
+    height: 80px;
+}
+.upload .show .image input {
+    border: 0px solid #666;
+    width: 95%;
+    height: 20px;
+    padding: 2% 0;
+}
+.upload .show .progress {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0px;
+    left: 10px;
+    color: white;
+    line-height: 80px;
+    z-index: 1;
+}
+.upload .show .progress::before {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0px;
+    left: 0px;
+    background: black;
+    opacity: 0.6;
+    content: "";
+    z-index: -1;
+}
+.upload .show .failed::after {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0px;
+    left: 0px;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: red;
+    line-height: 80px;
+    font-size: 30px;
+    content: "\f071";
+}
+.upload .select {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 4px solid #eee;
+    margin: 10px;
+}
+.upload .select::before, .upload .select::after {
+    position: absolute;
+    top: 48px;
+    left: 20px;
+    width: 60px;
+    height: 4px;
+    background: #eee;
+    content: "";
+}
+.upload .select::before {
+    transform: rotate(90deg);
+}
+.upload .select input {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    cursor: pointer;
+}
